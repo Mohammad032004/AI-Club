@@ -64,4 +64,4 @@ npx vercel   # Deploy to Vercel
 ```
 Add MONGODB_URI, NEXTAUTH_SECRET, NEXTAUTH_URL in Vercel dashboard.
 
-Built with love by NexusAI Core Team.
+Developed by Mohammad Irfan.
