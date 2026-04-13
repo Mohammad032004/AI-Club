@@ -32,8 +32,8 @@ async function seed() {
   );
 
   console.log("✅ Admin user seeded:");
-  console.log("   Email:    admin@nexusai.club");
-  console.log("   Password: nexusai@admin2025");
+  console.log("   Email:    admin@aiclub.com");
+  console.log("   Password: ailab@admin");
   console.log("   ⚠️  Change these credentials immediately after first login!");
 
   await mongoose.disconnect();

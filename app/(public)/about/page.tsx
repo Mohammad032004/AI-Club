@@ -5,25 +5,64 @@ const teamHierarchy = [
   {
     level: "Faculty Head",
     members: [
-      { name: "Dr. R. Verma", role: "Faculty Head", dept: "Computer Science & Engineering", course: "Ph.D. AI/ML", bio: "Guiding innovation with 15+ years of research experience in ML and AI systems.", grad: "linear-gradient(135deg,#3b82f6,#8b5cf6)" },
+      { name: "Dr. AK RAI", role: "Faculty Head", dept: "Computer Science & Engineering", course: "Ph.D. AI/ML", bio: "Guiding innovation with 15+ years of research experience in ML and AI systems.", grad: "linear-gradient(135deg,#3b82f6,#8b5cf6)" },
     ],
   },
   {
     level: "Leadership",
     members: [
-      { name: "Aryan Kumar", role: "Club Head", dept: "CSE (AI/ML)", course: "B.Tech · 3rd Year", bio: "ML engineer passionate about building real-world AI systems. Won 3 national hackathons.", grad: "linear-gradient(135deg,#8b5cf6,#ec4899)" },
-      { name: "Priya Sharma", role: "Co-Head", dept: "Data Science", course: "B.Tech · 3rd Year", bio: "Data scientist specializing in NLP and large-scale model fine-tuning.", grad: "linear-gradient(135deg,#06b6d4,#3b82f6)" },
-    ],
+      {
+        name: "Dhaval Vaish",
+        role: "Cybersecurity Lead",
+        domain: ["Cybersecurity"],
+        dept: "BCA",
+        course: "3rd Year",
+        bio: "Security enthusiast focused on ethical hacking, network defense, and real-world cyber systems.",
+        grad: "linear-gradient(135deg,#8b5cf6,#ec4899)"
+      },
+      {
+        name: "Priyanshu Verma",
+        role: "AI & Web Development Lead",
+        domain: ["Artificial Intelligence", "Web Development"],
+        dept: "BCA",
+        course: "3rd Year",
+        bio: "Works on AI-powered web applications, combining machine learning with scalable full-stack systems.",
+        grad: "linear-gradient(135deg,#06b6d4,#3b82f6)"
+      }
+    ]
   },
   {
     level: "Core Members",
     members: [
-      { name: "Sneha Rao", role: "NLP Lead", dept: "CSE", course: "B.Tech · 2nd Year", bio: "HuggingFace contributor. Specializes in multilingual NLP and low-resource language models.", grad: "linear-gradient(135deg,#10b981,#06b6d4)" },
-      { name: "Vikram Agarwal", role: "Cybersecurity Lead", dept: "IT", course: "B.Tech · 3rd Year", bio: "CTF champion and security researcher. Focuses on adversarial ML and network security.", grad: "linear-gradient(135deg,#f59e0b,#ef4444)" },
-      { name: "Riya Mehta", role: "Events Lead", dept: "CSE", course: "B.Tech · 2nd Year", bio: "Organizes workshops, hackathons, and speaker sessions. 500+ event attendees managed.", grad: "linear-gradient(135deg,#8b5cf6,#06b6d4)" },
-      { name: "Kavya Pillai", role: "Design Lead", dept: "CSE", course: "B.Tech · 2nd Year", bio: "Full-stack developer and UI designer. Builds all club tools and web platforms.", grad: "linear-gradient(135deg,#ec4899,#8b5cf6)" },
-    ],
-  },
+      {
+        name: "Arnav Gupta",
+        role: "Cybersecurity & NLP Developer",
+        domain: ["Cybersecurity", "Natural Language Processing"],
+        dept: "BCA",
+        course: "3rd Year",
+        bio: "Explores cybersecurity and NLP, focusing on secure AI systems and multilingual models.",
+        grad: "linear-gradient(135deg,#10b981,#06b6d4)"
+      },
+      {
+        name: "Sidra Zhaid",
+        role: "Data Analytics Lead",
+        domain: ["Data Analytics"],
+        dept: "BCA",
+        course: "3rd Year",
+        bio: "Passionate about extracting insights from data using visualization, statistics, and analytics tools.",
+        grad: "linear-gradient(135deg,#f59e0b,#ef4444)"
+      },
+      {
+        name: "Irfan Ansari",
+        role: "AI & Web Development + Events",
+        domain: ["Artificial Intelligence", "Web Development", "Event Management"],
+        dept: "BCA",
+        course: "2nd Year",
+        bio: "Combines AI and web development while managing events, workshops, and hackathons.",
+        grad: "linear-gradient(135deg,#8b5cf6,#06b6d4)"
+      }
+    ]
+  }
 ];
 
 export default function AboutPage() {
@@ -48,12 +87,12 @@ export default function AboutPage() {
 
     {/* Heading */}
     <h1 className="heading-xl text-[clamp(2.5rem,5vw,3.8rem)] mb-5">
-      We are <span className="gradient-text">NexusAI</span>
+      We are <span className="gradient-text">AI-CLUB</span>
     </h1>
 
     {/* Description */}
     <p className="text-[var(--text2)] max-w-xl mx-auto text-base leading-7">
-      Founded in 2022, NexusAI is the premier AI student community on campus — 
+      Founded in 2022, AI-CLUB is the premier AI student community on campus — 
       where research meets real-world impact.
     </p>
 
@@ -64,7 +103,7 @@ export default function AboutPage() {
       Vision / Mission / Values 
       ========================================*/}
     
-<section className="section">
+{/*<section className="section">
   <div className="container">
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -90,16 +129,17 @@ export default function AboutPage() {
           key={v.title}
           className="card p-6 text-center flex flex-col items-center justify-center transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:border-[var(--accent)]"
         >
-
-          {/* Icon */}
+*/}
+{/*
+          
           <div className="text-3xl mb-3">{v.icon}</div>
 
-          {/* Title */}
+          
           <h3 className="font-semibold text-base mb-2">
             {v.title}
           </h3>
 
-          {/* Text */}
+          
           <p className="text-[var(--text2)] text-sm leading-6">
             {v.text}
           </p>
@@ -112,6 +152,7 @@ export default function AboutPage() {
   </div>
 </section>
 
+*/}
       {/* What We Cover */}
       <section style={{ background: "#0a1525", borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "5rem 2rem" }}>
         <div style={{ maxWidth: 1100, margin: "0 auto" }}>
