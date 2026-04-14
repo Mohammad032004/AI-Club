@@ -16,7 +16,7 @@ if (!global.mongoose) global.mongoose = cached;
 export async function connectDB(): Promise<typeof mongoose> {
   const MONGODB_URI = process.env.MONGODB_URI as string;
   if (!MONGODB_URI) {
-    throw new Error("Please define the MONGODB_URI environment variable in .env.local");
+    throw new Error("Please define the MONGODB_URI environment variable in .env");
   }
   if (cached.conn) return cached.conn;
   if (!cached.promise) {

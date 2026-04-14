@@ -2,12 +2,14 @@
  * Run once to seed the admin user:
  *   npx tsx scripts/seed-admin.ts
  *
- * Make sure MONGODB_URI is set in .env.local
+ * Make sure MONGODB_URI is set in .env
  */
+
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import * as dotenv from "dotenv";
-dotenv.config(); // automatically loads .env
+
+dotenv.config();
 
 const uri = process.env.MONGODB_URI!;
 
@@ -20,23 +22,43 @@ const UserSchema = new mongoose.Schema({
 });
 
 async function seed() {
-  await mongoose.connect(uri);
-  const User = mongoose.models.User || mongoose.model("User", UserSchema);
+  try {
+    console.log("🔌 Connecting to database...");
+    await mongoose.connect(uri);
+    console.log("✅ Connected to MongoDB");
 
-  const password = await bcrypt.hash("nexusai@admin2025", 10);
+    const User =
+      mongoose.models.User || mongoose.model("User", UserSchema);
 
-  await User.findOneAndUpdate(
-    { email: "admin@nexusai.club" },
-    { name: "Aryan Kumar", email: "admin@nexusai.club", password, role: "admin" },
-    { upsert: true, new: true }
-  );
+    // ✅ FINAL CREDENTIALS (use these to login)
+    const ADMIN_EMAIL = process.env.ADMIN_EMAIL!;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD!;
 
-  console.log("✅ Admin user seeded:");
-  console.log("   Email:    admin@aiclub.com");
-  console.log("   Password: ailab@admin");
-  console.log("   ⚠️  Change these credentials immediately after first login!");
+    const hashedPassword = await bcrypt.hash(ADMIN_PASSWORD, 10);
 
-  await mongoose.disconnect();
+    const user = await User.findOneAndUpdate(
+      { email: ADMIN_EMAIL },
+      {
+        name: "Aryan Kumar",
+        email: ADMIN_EMAIL,
+        password: hashedPassword,
+        role: "admin",
+      },
+      { upsert: true, returnDocument: "after" } // ✅ fixed deprecation
+    );
+
+    console.log("\n🎉 Admin user ready:");
+    console.log("   Email:   ", ADMIN_EMAIL);
+    console.log("   Password:", ADMIN_PASSWORD);
+    console.log("   User ID: ", user._id);
+    console.log("⚠️  Change password after first login!\n");
+
+    await mongoose.disconnect();
+    console.log("🔌 Disconnected from DB");
+  } catch (error) {
+    console.error("❌ Error seeding admin:", error);
+    process.exit(1);
+  }
 }
 
-seed().catch(console.error);
+seed();
