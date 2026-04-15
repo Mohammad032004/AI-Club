@@ -1,4 +1,5 @@
 "use client";
+<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import { Eye, EyeOff, Plus, Trash2, Edit, RefreshCw, X, Shield, Key, Mail, Users } from "lucide-react";
 import { toast } from "@/lib/toast";
@@ -153,10 +154,14 @@ export default function AdminSettingsPage() {
 
   const ROLE_COLORS: Record<string, string> = { admin: "#f87171", core: "#60a8ff", member: "#34d399" };
 
+=======
+export default function AdminSettingsPage() {
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   return (
     <div>
       <div style={{ marginBottom:"1.75rem" }}>
         <h1 style={{ fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:"1.75rem",marginBottom:".25rem" }}>Settings</h1>
+<<<<<<< HEAD
         <p style={{ color:"#8b949e",fontSize:".875rem" }}>Manage account security and user access</p>
       </div>
 
@@ -298,6 +303,13 @@ export default function AdminSettingsPage() {
         <UserModal user={editUser} onClose={()=>setEditUser(undefined)} onSave={handleUserSave}/>
       )}
       <style>{`@keyframes spin{to{transform:rotate(360deg);}}`}</style>
+=======
+        <p style={{ color:"#8b949e",fontSize:".875rem" }}>Admin panel configuration</p>
+      </div>
+      <div style={{ background:"var(--surface)",border:"1px solid var(--border2)",borderRadius:14,padding:"2rem",maxWidth:560 }}>
+        <p style={{ color:"#8b949e",textAlign:"center",padding:"2rem" }}>Settings panel — configure your MongoDB URI, club name, and other settings in your <code style={{ background:"var(--bg2)",padding:".15rem .4rem",borderRadius:4,fontFamily:"'JetBrains Mono',monospace",fontSize:".82rem" }}>.env.local</code> file.</p>
+      </div>
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
     </div>
   );
 }

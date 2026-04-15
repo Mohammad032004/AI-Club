@@ -14,6 +14,7 @@ const RESPONSES: Record<string, string> = {
   project: "We have 50+ projects! Highlights include MediScan AI, Hindi Sentiment NLP, and CyberShield. Explore them all on the Projects page.",
   team: "Our club is led by Faculty Head Dr. R. Verma, Head Aryan Kumar, and Co-Head Priya Sharma. Visit the About page for the full hierarchy.",
   resource: "Resources include ML notes, workshop recordings, cybersecurity guides, and research papers. Member login required — visit the Resources page.",
+<<<<<<< HEAD
   contact: "Reach us at ai-club@college.edu.in or use the Contact page. We reply within 24 hours!",
   member: "We have 100+ members across CSE, IT, and Data Science. New batch inducted twice a year. Apply via the Apply Now button!",
   join: "To join AI-CLUB, click 'Apply Now' in the navbar. You'll fill out a 4-step form covering your background, skills, and motivation.",
@@ -23,6 +24,15 @@ const RESPONSES: Record<string, string> = {
 
 const QUICK_MESSAGES = ["Apply", "Events", "Projects", "Contact"];
 
+=======
+  contact: "Reach us at nexusai@college.edu.in or use the Contact page. We reply within 24 hours!",
+  member: "We have 100+ members across CSE, IT, and Data Science. New batch inducted twice a year. Apply via the Apply Now button!",
+  join: "To join NexusAI, click 'Apply Now' in the navbar. You'll fill out a 4-step form covering your background, skills, and motivation.",
+  hello: "Hi there! 👋 I'm the NexusAI assistant. Ask me about the club, events, projects, how to apply, or anything else!",
+  hi: "Hello! 👋 How can I help you today? Ask about events, projects, applications, or the team!",
+};
+
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 function getBotReply(msg: string): string {
   const lower = msg.toLowerCase();
   for (const key in RESPONSES) {
@@ -34,7 +44,11 @@ function getBotReply(msg: string): string {
 export default function ChatbotWidget() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
+<<<<<<< HEAD
     { role: "bot", text: "Hi! 👋 I'm the AI-CLUB assistant. Ask me about the club, events, projects, or how to apply!" },
+=======
+    { role: "bot", text: "Hi! 👋 I'm the NexusAI assistant. Ask me about the club, events, projects, or how to apply!" },
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
@@ -56,10 +70,13 @@ export default function ChatbotWidget() {
     }, 800);
   };
 
+<<<<<<< HEAD
   const quickReply = (text: string) => {
     setMessages((prev) => [...prev, { role: "user", text }, { role: "bot", text: getBotReply(text) }]);
   };
 
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   return (
     <>
       {/* FAB */}
@@ -129,7 +146,11 @@ export default function ChatbotWidget() {
               <Bot size={18} color="white" />
             </div>
             <div>
+<<<<<<< HEAD
               <div style={{ fontWeight: 600, fontSize: "0.9rem" }}>AI-CLUB Assistant</div>
+=======
+              <div style={{ fontWeight: 600, fontSize: "0.9rem" }}>NexusAI Assistant</div>
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
               <div style={{ fontSize: "0.72rem", color: "#8ba3c7", display: "flex", alignItems: "center", gap: 4 }}>
                 <span
                   style={{
@@ -150,7 +171,11 @@ export default function ChatbotWidget() {
           <div
             ref={msgsRef}
             style={{
+<<<<<<< HEAD
               height: 250,
+=======
+              height: 280,
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
               overflowY: "auto",
               padding: "1rem",
               display: "flex",
@@ -196,6 +221,7 @@ export default function ChatbotWidget() {
             )}
           </div>
 
+<<<<<<< HEAD
           {/* Quick replies */}
           <div
             style={{
@@ -225,6 +251,8 @@ export default function ChatbotWidget() {
             ))}
           </div>
 
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
           {/* Input */}
           <div
             style={{
