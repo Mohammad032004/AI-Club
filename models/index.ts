@@ -3,7 +3,11 @@ import mongoose, { Schema, model, models } from "mongoose";
 // ─── USER (Admin/Core) ───
 const UserSchema = new Schema({
   name: { type: String, required: true },
+<<<<<<< HEAD
+  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
+=======
   email: { type: String, required: true, unique: true },
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   password: { type: String, required: true },
   role: { type: String, enum: ["admin", "core", "member"], default: "member" },
   createdAt: { type: Date, default: Date.now },
@@ -26,7 +30,12 @@ const MemberSchema = new Schema({
   bio: String,
   skills: [String],
   domains: [String],
+<<<<<<< HEAD
+  points: { type: Number, default: 0 },
+  showOnAbout: { type: Boolean, default: true }, // FIX #6: show on website
+=======
   points: { type: Number, default: 0 }, // Leaderboard
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 });
 export const Member = models.Member || model("Member", MemberSchema);
 
@@ -49,7 +58,10 @@ export const TeamMember = models.TeamMember || model("TeamMember", TeamMemberSch
 
 // ─── APPLICATION ───
 const ApplicationSchema = new Schema({
+<<<<<<< HEAD
+=======
   // Personal
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   email: { type: String, required: true },
@@ -57,22 +69,36 @@ const ApplicationSchema = new Schema({
   gender: String,
   github: String,
   linkedin: String,
+<<<<<<< HEAD
+=======
   // Academics
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   college: String,
   branch: String,
   year: String,
   cgpa: Number,
   certifications: String,
+<<<<<<< HEAD
+=======
   // Skills
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   skills: [String],
   domains: [String],
   experience: String,
   projectDesc: String,
+<<<<<<< HEAD
+  whyJoin: String,
+  contribution: String,
+  goals: String,
+  // FIX #5: dynamic extra fields from form builder
+  extraFields: { type: Map, of: String },
+=======
   // SOP
   whyJoin: String,
   contribution: String,
   goals: String,
   // Meta
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
   batch: String,
   submittedAt: { type: Date, default: Date.now },
@@ -96,6 +122,20 @@ const EventSchema = new Schema({
   bannerGradient: String,
   tags: [String],
   registrationOpen: { type: Boolean, default: true },
+<<<<<<< HEAD
+  // FIX #2: dynamic registration form fields
+  formFields: [{
+    id: String,
+    label: String,
+    type: { type: String, enum: ["text", "email", "tel", "select", "textarea"], default: "text" },
+    required: { type: Boolean, default: false },
+    options: [String], // for select fields
+    order: { type: Number, default: 0 },
+  }],
+  allowTeams: { type: Boolean, default: false },
+  maxTeamSize: { type: Number, default: 4 },
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   createdBy: String,
   createdAt: { type: Date, default: Date.now },
 });
@@ -110,7 +150,12 @@ const EventRegistrationSchema = new Schema({
   branch: String,
   year: String,
   teamName: String,
+<<<<<<< HEAD
+  teamMembers: [{ name: String, email: String, phone: String }],
+  extraFields: { type: Map, of: String },
+=======
   teamSize: Number,
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   registeredAt: { type: Date, default: Date.now },
   attended: { type: Boolean, default: false },
 });
@@ -159,3 +204,14 @@ const MessageSchema = new Schema({
   createdAt: { type: Date, default: Date.now },
 });
 export const Message = models.Message || model("Message", MessageSchema);
+<<<<<<< HEAD
+
+// ─── SITE SETTINGS ───
+const SiteSettingsSchema = new Schema({
+  key: { type: String, required: true, unique: true },
+  value: Schema.Types.Mixed,
+  updatedAt: { type: Date, default: Date.now },
+});
+export const SiteSettings = models.SiteSettings || model("SiteSettings", SiteSettingsSchema);
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f

@@ -22,3 +22,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f

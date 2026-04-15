@@ -1,6 +1,9 @@
 /**
  * Typed API helpers — used across all admin pages.
+<<<<<<< HEAD
+=======
  * All functions throw on non-OK responses so callers can catch.
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
  */
 
 export class ApiError extends Error {
@@ -20,7 +23,11 @@ async function request<T>(url: string, opts?: RequestInit): Promise<T> {
   return data as T;
 }
 
+<<<<<<< HEAD
+// ── Applications ──────────────────────────────────────────────
+=======
 // ── Applications ─────────────────────────────────────────────
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 export type AppStatus = "pending" | "accepted" | "rejected";
 export interface Application {
   _id: string;
@@ -28,6 +35,21 @@ export interface Application {
   lastName: string;
   email: string;
   phone?: string;
+<<<<<<< HEAD
+  gender?: string;
+  branch?: string;
+  year?: string;
+  cgpa?: number;
+  college?: string;
+  certifications?: string;
+  skills?: string[];
+  domains?: string[];
+  experience?: string;
+  projectDesc?: string;
+  whyJoin?: string;
+  contribution?: string;
+  goals?: string;
+=======
   branch?: string;
   year?: string;
   cgpa?: number;
@@ -35,12 +57,17 @@ export interface Application {
   domains?: string[];
   whyJoin?: string;
   contribution?: string;
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   github?: string;
   linkedin?: string;
   status: AppStatus;
   batch?: string;
   submittedAt: string;
   reviewedAt?: string;
+<<<<<<< HEAD
+  reviewNote?: string;
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 }
 
 export const applicationsApi = {
@@ -57,7 +84,11 @@ export const applicationsApi = {
     request<{ success: boolean }>(`/api/applications/${id}`, { method: "DELETE" }),
 };
 
+<<<<<<< HEAD
+// ── Members ───────────────────────────────────────────────────
+=======
 // ── Members ──────────────────────────────────────────────────
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 export interface Member {
   _id: string;
   name: string;
@@ -72,6 +103,10 @@ export interface Member {
   joinedAt: string;
   bio?: string;
   skills?: string[];
+<<<<<<< HEAD
+  showOnAbout?: boolean;
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 }
 
 export const membersApi = {
@@ -95,7 +130,11 @@ export const membersApi = {
     request<{ success: boolean }>(`/api/members/${id}`, { method: "DELETE" }),
 };
 
+<<<<<<< HEAD
+// ── Messages ──────────────────────────────────────────────────
+=======
 // ── Messages ─────────────────────────────────────────────────
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 export interface Message {
   _id: string;
   name: string;
@@ -121,7 +160,19 @@ export const messagesApi = {
     request<{ success: boolean }>(`/api/messages/${id}`, { method: "DELETE" }),
 };
 
+<<<<<<< HEAD
+// ── Events ────────────────────────────────────────────────────
+export interface FormField {
+  id: string;
+  label: string;
+  type: string;
+  required: boolean;
+  options?: string[];
+}
+
+=======
 // ── Events ───────────────────────────────────────────────────
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 export interface ClubEvent {
   _id: string;
   title: string;
@@ -133,6 +184,12 @@ export interface ClubEvent {
   status: "upcoming" | "ongoing" | "past" | "cancelled";
   registrationOpen: boolean;
   tags?: string[];
+<<<<<<< HEAD
+  formFields?: FormField[];
+  allowTeams?: boolean;
+  maxTeamSize?: number;
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 }
 
 export const eventsApi = {
@@ -152,7 +209,11 @@ export const eventsApi = {
     request<{ success: boolean }>(`/api/events/${id}`, { method: "DELETE" }),
 };
 
+<<<<<<< HEAD
+// ── Projects ──────────────────────────────────────────────────
+=======
 // ── Projects ─────────────────────────────────────────────────
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 export interface Project {
   _id: string;
   title: string;
@@ -165,6 +226,10 @@ export interface Project {
   year?: number;
   featured: boolean;
   visible: boolean;
+<<<<<<< HEAD
+  award?: string;
+=======
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 }
 
 export const projectsApi = {
@@ -183,7 +248,11 @@ export const projectsApi = {
     request<{ success: boolean }>(`/api/projects/${id}`, { method: "DELETE" }),
 };
 
+<<<<<<< HEAD
+// ── Resources ─────────────────────────────────────────────────
+=======
 // ── Resources ────────────────────────────────────────────────
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
 export interface Resource {
   _id: string;
   title: string;
@@ -198,7 +267,11 @@ export interface Resource {
 }
 
 export const resourcesApi = {
+<<<<<<< HEAD
+  list: () => request<{ resources: Resource[] }>("/api/resources?access=all"),
+=======
   list: () => request<{ resources: Resource[] }>("/api/resources"),
+>>>>>>> 6ec63e697d3821c7ed1947ee75986b4eeeda0b9f
   create: (data: Partial<Resource>) =>
     request<{ success: boolean; id: string }>("/api/resources", {
       method: "POST",
